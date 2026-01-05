@@ -23,6 +23,7 @@ The TAM Observer is a **diagnostic instrument**, not a trading system.
 2. **Recommend** — No trade signals or action suggestions
 3. **Optimize** — No parameter tuning or threshold adjustment
 4. **Control** — No writes to external systems
+5. **Interpret** — No semantic meaning is assigned to labels beyond classification
 
 ---
 

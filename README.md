@@ -10,7 +10,7 @@ A diagnostic instrument for classifying trading admissibility. Observer-only, no
 
 TAM Observer classifies market intervals as **admissible** or **inadmissible** based on execution constraints. It answers:
 
-> "Given my execution friction and minimum required move, is this interval structurally viable?"
+> "Given my execution friction and minimum required move, is this interval structurally admissible under stated execution constraints?"
 
 ## What This Is NOT
 
@@ -20,13 +20,14 @@ This SDK does **not**:
 - Recommend trades or generate entry/exit signals
 - Optimize parameters or tune thresholds
 - Provide financial advice of any kind
+- Provide any indication that a trade *should* or *should not* be taken
 
 It is a **diagnostic instrument**, not a trading system.
 
 ## Installation
 
 ```bash
-pip install tam-observer
+pip install tam-observer  # available with first public release
 ```
 
 ## Quick Start

@@ -47,8 +47,7 @@ def main():
 
     for record in observer.observe(bars):
         print(f"{record.timestamp}")
-        print(f"  State: {record.state.value}")
-        print(f"  Admissible: {record.admissible}")
+        print(f"  Classification: {record.state.value}")
         print(f"  Dominant Mode: {record.dominant_mode.value}")
         print()
 

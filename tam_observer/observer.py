@@ -45,6 +45,8 @@ class TAMObserver:
     - Attribute dominant failure modes
     - Detect boundary events between states
 
+    Internal constants are implementation details and carry no semantic meaning.
+
     Usage:
         constraints = ExecutionConstraints(friction_floor=0.0015, min_move=0.01)
         observer = TAMObserver(constraints)
@@ -52,6 +54,8 @@ class TAMObserver:
         for record in observer.observe(bars):
             print(f"{record.timestamp}: {record.state.value}")
     """
+
+    __WINDOW_SIZE = 64  # Internal constant; value is non-semantic
 
     def __init__(self, constraints: ExecutionConstraints):
         """
@@ -62,7 +66,6 @@ class TAMObserver:
                          These are not tunable — they describe the environment.
         """
         self._constraints = constraints
-        self._window_size = 64  # Internal constant, not exposed
 
     @property
     def constraints(self) -> ExecutionConstraints:
@@ -104,16 +107,11 @@ class TAMObserver:
         return ObservationRecord(
             timestamp=bar.timestamp,
             state=AdmissibilityState.BASIN,
-            admissible=False,
             dominant_mode=DominantMode.FRICTION_LETHAL,
-            basin_compression=0.0,
-            escape_slope=0.0,
-            persistence=0.0,
-            excursion_headroom=0.0,
-            reentry_risk=0.0,
             friction_floor=self._constraints.friction_floor,
             min_move=self._constraints.min_move,
             m_req=self._constraints.m_req,
+            diagnostics={},  # Opaque; populated by real implementation
         )
 
     def observe_batch(self, bars: Sequence[OHLCVBar]) -> List[ObservationRecord]:

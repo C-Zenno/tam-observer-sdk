@@ -4,7 +4,7 @@ TAM Observer Types
 Observer Edition | Diagnostic Instrument | No Predictions
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
 from typing import Optional
 
@@ -60,24 +60,28 @@ class ObservationRecord:
 
     This is a diagnostic record, not a trading signal.
     All fields describe past state, not future expectation.
+
+    Note: The `diagnostics` field contains descriptive values that are
+    not normalized, not comparable across markets, and not stable across
+    versions. They must not be thresholded or optimized against.
     """
     timestamp: str
     state: AdmissibilityState
-    admissible: bool
     dominant_mode: DominantMode
-
-    # Diagnostic metrics (all derived from past data)
-    basin_compression: float
-    escape_slope: float
-    persistence: float
-    excursion_headroom: float
-    reentry_risk: float
 
     # Environment constraints (fixed, not tuned)
     friction_floor: float
     min_move: float
     m_req: float
 
+    # Opaque diagnostic values (descriptive only, not stable across versions)
+    diagnostics: dict[str, float] = field(default_factory=dict)
+
     # Boundary events (if any)
     boundary_event: Optional[str] = None
     invalidation_reason: Optional[str] = None
+
+    @property
+    def admissible(self) -> bool:
+        """Whether the interval was classified as admissible."""
+        return self.state in (AdmissibilityState.ESCAPE,)
