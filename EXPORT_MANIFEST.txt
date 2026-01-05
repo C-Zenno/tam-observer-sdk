@@ -8,6 +8,12 @@ pyproject.toml
 README.md
 doctrine.md
 EXPORT_MANIFEST.txt
+CHANGELOG.md
+SECURITY.md
+
+# Anchor documents (certification-adjacent)
+NOTE_TRADING_OBSERVER.md
+NOTE_OBSERVER_NEUTRAL.md
 
 # Core package
 tam_observer/__init__.py
