@@ -4,6 +4,8 @@
 
 A diagnostic instrument for classifying trading admissibility. Observer-only, non-predictive.
 
+> **Note:** This repo is an automated subtree export. Contributions should be opened against the source monorepo, not here.
+
 ## What This Is
 
 TAM Observer classifies market intervals as **admissible** or **inadmissible** based on execution constraints. It answers:
