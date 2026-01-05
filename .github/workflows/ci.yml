@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  guardrails:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Forbidden paths check
+        run: |
+          set -euo pipefail
+          forbidden=(
+            "core/"
+            "internal/"
+            ".env"
+            ".env."
+            "secrets"
+            "credentials"
+            "id_rsa"
+            ".sqlite"
+            ".db"
+            ".ipynb"
+          )
+
+          hit=0
+          for f in "${forbidden[@]}"; do
+            if git ls-files | grep -i -q "$f"; then
+              echo "ERROR: Forbidden artifact detected in public repo: $f"
+              hit=1
+            fi
+          done
+
+          if [ "$hit" -eq 1 ]; then
+            exit 1
+          fi
+
+      - name: Reject .exportignore presence
+        run: |
+          if [ -f ".exportignore" ]; then
+            echo "ERROR: .exportignore must never exist in public repo."
+            echo "This file belongs only in the internal monorepo."
+            exit 1
+          fi
+
+      - name: Enforce EXPORT_MANIFEST
+        run: |
+          set -euo pipefail
+          if [ ! -f "EXPORT_MANIFEST.txt" ]; then
+            echo "ERROR: EXPORT_MANIFEST.txt missing. This repo may be corrupted."
+            exit 1
+          fi
+
+          # Build list of tracked files (excluding .git)
+          git ls-files > /tmp/actual_files.txt
+
+          # Build list of allowed files from manifest (skip comments/blanks)
+          grep -v '^#' EXPORT_MANIFEST.txt | grep -v '^$' | sort > /tmp/allowed_files.txt
+
+          # Find any file NOT in the manifest
+          violation=0
+          while IFS= read -r f; do
+            if ! grep -Fxq "$f" /tmp/allowed_files.txt; then
+              echo "ERROR: Unmanifested file detected: $f"
+              violation=1
+            fi
+          done < /tmp/actual_files.txt
+
+          if [ "$violation" -eq 1 ]; then
+            echo ""
+            echo "All tracked files must be listed in EXPORT_MANIFEST.txt"
+            exit 1
+          fi
+          echo "Manifest check passed: all files accounted for."
+
+      - name: Python package sanity
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+          python -c "import tam_observer; print('tam_observer import OK')"
