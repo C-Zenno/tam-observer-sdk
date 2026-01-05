@@ -1,0 +1,21 @@
+# EXPORT_MANIFEST.txt
+# Exhaustive list of files allowed in the public tam-observer-sdk repo.
+# CI will REJECT any file not listed here.
+# This is an allowlist, not a denylist.
+
+# Package metadata
+pyproject.toml
+README.md
+doctrine.md
+EXPORT_MANIFEST.txt
+
+# Core package
+tam_observer/__init__.py
+tam_observer/types.py
+tam_observer/observer.py
+
+# Examples
+examples/basic_usage.py
+
+# CI/CD
+.github/workflows/ci.yml
