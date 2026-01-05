@@ -10,6 +10,7 @@ doctrine.md
 EXPORT_MANIFEST.txt
 CHANGELOG.md
 SECURITY.md
+.gitignore
 
 # Anchor documents (certification-adjacent)
 NOTE_TRADING_OBSERVER.md
