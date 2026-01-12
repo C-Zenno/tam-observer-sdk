@@ -6,6 +6,8 @@
 # Package metadata
 pyproject.toml
 README.md
+LICENSE
+DISCLAIMER.md
 doctrine.md
 EXPORT_MANIFEST.txt
 CHANGELOG.md

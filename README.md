@@ -2,9 +2,28 @@
 
 **Trading Admissibility Mapper — Observer Edition**
 
-A diagnostic instrument for classifying trading admissibility. Observer-only, non-predictive.
+## Overview
+
+This repository provides a **non-authoritative, observer-only evaluation SDK**
+intended solely for **research, demonstration, and educational use**.
+
+The software enables descriptive inspection of market intervals and emits bounded,
+machine-readable admissibility classifications. It **does not** provide decisions,
+recommendations, controls, or operational authority of any kind.
+
+> This SDK is **not licensed for production use**, system integration,
+> automation at scale, decision-making, or commercial deployment.
+
+Use of this repository is governed by the **Observer Evaluation License (OEL-1.0)**.
+By cloning, running, or modifying this software, you agree to those terms.
+
+If you are seeking production, embedded, or commercial use, this repository
+is not the appropriate artifact. Contact the authors for licensed SDKs,
+applications, or certification frameworks.
 
 > **Note:** This repo is an automated subtree export. Contributions should be opened against the source monorepo, not here.
+
+---
 
 ## What This Is
 
@@ -86,8 +105,26 @@ This SDK adheres to **Observer Edition** constraints:
 
 ## License
 
-Apache 2.0
+**Observer Evaluation License (OEL-1.0)**
+
+This software is provided for non-authoritative, observer-only evaluation purposes only.
+See [LICENSE](LICENSE) for full terms.
 
 ## Disclaimer
 
-This software is a diagnostic tool for analytical purposes only. It does not constitute financial advice, trading recommendations, or investment guidance. Use at your own risk.
+This software operates strictly in an observer-only capacity.
+
+- It does not make decisions
+- It does not provide recommendations
+- It does not control or influence systems
+- It does not predict outcomes
+- It does not optimize behavior
+- It does not certify admissibility, safety, or correctness
+
+All outputs are descriptive artifacts produced for evaluation purposes only.
+Any interpretation or use of outputs is solely the responsibility of the user.
+
+This software must not be used where decisions, automation, or operational
+authority are required.
+
+See [DISCLAIMER.md](DISCLAIMER.md) for full disclaimer.

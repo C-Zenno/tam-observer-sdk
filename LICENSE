@@ -1,0 +1,40 @@
+OBSERVER EVALUATION LICENSE (OEL-1.0)
+
+Copyright (c) 2026 ZNT / Zenno
+
+This software is provided for NON-AUTHORITATIVE, OBSERVER-ONLY EVALUATION PURPOSES ONLY.
+
+PERMITTED USES
+You are permitted to:
+- Run the software locally for personal evaluation, research, or educational exploration
+- Inspect outputs for descriptive, non-decisional analysis
+- Modify the software for private, non-commercial experimentation
+
+PROHIBITED USES
+You may NOT, under any circumstances:
+- Use the software in production environments
+- Embed the software in products, services, or pipelines
+- Use the software for decision-making, control, gating, optimization, or actuation
+- Use the software to provide advice, recommendations, or automated judgments
+- Use the software at scale, in batch automation, or as part of continuous systems
+- Train, fine-tune, optimize, or calibrate models using the software or its outputs
+- Infer, reconstruct, or operationalize thresholds, parameters, or internal criteria
+- Redistribute the software as part of a commercial or revenue-generating offering
+
+NO AUTHORITY GRANTED
+This software does not confer authority, certification, or approval of any system,
+process, individual, or outcome. All outputs are descriptive only and carry no
+prescriptive or normative force.
+
+NO WARRANTIES
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT.
+
+TERMINATION
+Any violation of this license automatically terminates all rights granted herein.
+
+CONTACT
+For commercial licensing, production use, or deployment inquiries, contact:
+https://github.com/C-Zenno/tam-observer-sdk/issues
+
+END OF LICENSE
