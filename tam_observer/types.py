@@ -30,7 +30,7 @@ class DominantMode(str, Enum):
     """
     FRICTION_LETHAL = "friction_lethal"
     EXCURSION_HEADROOM = "excursion_headroom"
-    REENTRY_RISK = "reentry_risk"
+    REENTRY_CONSTRAINT = "reentry_constraint"
     REGIME_VETO = "regime_veto"
     STRUCTURE_INVALIDATED = "structure_invalidated"
     UNKNOWN = "unknown"
