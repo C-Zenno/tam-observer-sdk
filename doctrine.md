@@ -2,6 +2,8 @@
 
 **Observer Edition | Phase A | Diagnostic Instrument**
 
+> **Surface:** This document describes ZOA application posture constraints (OEL-1), not CC doctrine (CRL-0).
+
 This document defines the constraints and principles governing the TAM Observer SDK.
 
 ---

@@ -12,9 +12,10 @@ doctrine.md
 EXPORT_MANIFEST.txt
 CHANGELOG.md
 SECURITY.md
+receipt.json
 .gitignore
 
-# Anchor documents (certification-adjacent)
+# Anchor documents (audit-adjacent)
 NOTE_TRADING_OBSERVER.md
 NOTE_OBSERVER_NEUTRAL.md
 

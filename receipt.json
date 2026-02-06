@@ -1,0 +1,21 @@
+{
+  "surface": "ZOA",
+  "license_id": "OEL-1.0",
+  "artifact_type": "observer-sdk-bundle",
+  "artifact_version": "v0.1.0",
+  "bundle_id": "tam-observer-sdk-v0.1.0",
+  "created_utc": "2026-02-06T04:45:00Z",
+  "producer_label": "ZOA Industries",
+  "posture_notice": "Stage-0 / observer-only / non-authoritative. No procedures, thresholds, or operational guidance.",
+  "scope_notice": "Observer artifacts only. No enforcement, no action authorization, no semantic claims.",
+  "integrity_ref": "REF:RELEASE_TAG_v0.1.0",
+  "exclusions": [
+    "no methods",
+    "no thresholds",
+    "no calibration logic",
+    "no scoring recipes",
+    "no enforcement or escalation",
+    "no operational procedures"
+  ],
+  "provenance_ref": "CHANGELOG.md#v0.1.0"
+}

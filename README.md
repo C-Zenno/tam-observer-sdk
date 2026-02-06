@@ -103,6 +103,10 @@ This SDK adheres to **Observer Edition** constraints:
 3. **Non-predictive** — Past-tense observations only
 4. **Immutable** — All records are append-only
 
+## Contracts
+
+Receipt Envelope (RE-V0) and Export Discipline (ED-V0) live in [`C-Zenno/zoa-contracts`](https://github.com/C-Zenno/zoa-contracts).
+
 ## License
 
 **Observer Evaluation License (OEL-1.0)**
