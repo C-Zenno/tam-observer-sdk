@@ -29,3 +29,8 @@ examples/basic_usage.py
 
 # CI/CD
 .github/workflows/ci.yml
+.github/workflows/require-head-tag.yml
+
+# Git hooks + installer
+.githooks/pre-push
+scripts/install_githooks.sh
