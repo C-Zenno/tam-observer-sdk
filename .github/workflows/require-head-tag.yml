@@ -1,0 +1,33 @@
+name: Require tag on HEAD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  require_tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history + tags)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch tags explicitly
+        run: git fetch --tags --force
+
+      - name: Require exact tag match on HEAD
+        env:
+          TAG_REGEX: '^v[0-9]+(\.[0-9]+){1,2}$'
+        run: |
+          set -euo pipefail
+          TAG="$(git describe --tags --exact-match HEAD 2>/dev/null || true)"
+          if [ -z "$TAG" ]; then
+            echo "ERROR: HEAD is not tagged. Push a tag matching: $TAG_REGEX"
+            exit 1
+          fi
+          if ! echo "$TAG" | grep -Eq "$TAG_REGEX"; then
+            echo "ERROR: HEAD tag '$TAG' does not match required pattern: $TAG_REGEX"
+            exit 1
+          fi
+          echo "OK: HEAD is tag-pinned -> $TAG"

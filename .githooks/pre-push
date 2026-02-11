@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+if [[ "$branch" != "main" ]]; then
+  exit 0
+fi
+
+git fetch --tags --quiet || true
+
+tag="$(git describe --tags --exact-match HEAD 2>/dev/null || true)"
+if [[ -z "$tag" ]]; then
+  echo "[pre-push] BLOCK: HEAD is not tagged."
+  echo "Create and push a tag before pushing to main."
+  exit 1
+fi
+
+TAG_REGEX='^v[0-9]+(\.[0-9]+){1,2}$'
+if ! echo "$tag" | grep -Eq "$TAG_REGEX"; then
+  echo "[pre-push] BLOCK: tag '$tag' doesn't match $TAG_REGEX"
+  exit 1
+fi
+
+echo "[pre-push] OK: HEAD tag -> $tag"
