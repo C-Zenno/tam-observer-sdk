@@ -105,7 +105,7 @@ This SDK adheres to **Observer Edition** constraints:
 
 ## Contracts
 
-Receipt Envelope (RE-V0) and Export Discipline (ED-V0) live in [`C-Zenno/zoa-contracts`](https://github.com/C-Zenno/zoa-contracts).
+See ZOA public use-boundary materials for current public posture.
 
 ## License
 
